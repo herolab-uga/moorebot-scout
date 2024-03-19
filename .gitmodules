@@ -1,0 +1,3 @@
+[submodule "sub/Scout-open-source"]
+	path = sub/Scout-open-source
+	url = https://github.com/Pilot-Labs-Dev/Scout-open-source.git
