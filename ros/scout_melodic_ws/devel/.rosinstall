@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/newt/Desktop/moorebot-scout/ros/scout_melodic_ws/devel/setup.sh
