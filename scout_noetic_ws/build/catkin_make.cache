@@ -1,0 +1,2 @@
+roller_eye
+-DCATKIN_DEVEL_PREFIX=/home/herolab/Desktop/moorebot-scout/scout_noetic_ws/devel -DCMAKE_INSTALL_PREFIX=/home/herolab/Desktop/moorebot-scout/scout_noetic_ws/install -G Unix Makefiles
