@@ -1,0 +1,16 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~image_width" : \b [int] width min: 100, default: 1280, max: 4000
+- \b "~image_height" : \b [int] height min: 100, default: 720, max: 4000
+- \b "~image_fps_num" : \b [int] 1/fps numerator min: 1, default: 1, max: 10
+- \b "~image_fps_den" : \b [int] 1/fps denominator min: 1, default: 30, max: 120
+- \b "~image_fmt" : \b [int] frame fmt,0:yuv420,1:yuyv min: 0, default: 0, max: 10
+- \b "~image_night_mode" : \b [int] night mode,0:off,1:on,2:auto min: 0, default: 2, max: 2
+- \b "~wideDynamic" : \b [int] wide dynamic,0:auto,1:hand min: 0, default: 0, max: 1
+- \b "~wideDynamicRange" : \b [int] wide dynamic range min: 0, default: 3, max: 5
+- \b "~h264Quality" : \b [int] h264 Compression multiple min: 0, default: 1, max: 2
+- \b "~nightVisionSensitivity" : \b [int] night vision sensitivity min: 0, default: 0, max: 1
+- \b "~cameraLight" : \b [int] camera brightness min: 0, default: 0, max: 100
+

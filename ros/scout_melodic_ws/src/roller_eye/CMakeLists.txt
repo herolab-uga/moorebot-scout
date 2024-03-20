@@ -52,18 +52,52 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+add_message_files(
+  FILES
+  frame.msg 
+  status.msg
+  record.msg 
+  detect.msg
+  task.msg 
+  wifi_info.msg
+  wifi_config_info.msg
+  point.msg
+  contour.msg 
+  alexskill.msg
+  patrol_status.msg
+)
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+add_service_files(
+  FILES
+  record_delete_file.srv
+  record_get_file_num.srv
+  record_get_files.srv
+  record_start.srv
+  record_stop.srv
+  record_get_file_path.srv
+  record_get_status.srv
+  record_clean.srv
+  video_set_resolution.srv
+  # wifi_add_ssid_key.srv
+  wifi_switch_ssid_key.srv
+  # wifi_config_ssid_result.srv
+  wifi_switch_mode.srv
+  wifi_scan_list.srv
+  rtmp_start.srv
+  rtmp_stop.srv
+  nav_path_save.srv
+  nav_path_start.srv
+  nav_patrol.srv
+  nav_cancel.srv
+  nav_patrol_stop.srv
+  nav_list_path.srv
+  nav_delete_path.srv
+  nav_mag_calibra.srv
+  nav_get_patrol_name.srv
+  nav_get_status.srv
+  sched_add_mod.srv
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -93,10 +127,10 @@ generate_messages(
 ##     and list every .cfg file to be processed
 
 ## Generate dynamic reconfigure parameters in the 'cfg' folder
-# generate_dynamic_reconfigure_options(
-#   cfg/DynReconf1.cfg
-#   cfg/DynReconf2.cfg
-# )
+generate_dynamic_reconfigure_options(
+  cfg/Project.cfg
+  cfg/Image.cfg
+)
 
 ###################################
 ## catkin specific configuration ##
@@ -108,10 +142,10 @@ generate_messages(
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES roller_eye
-#  CATKIN_DEPENDS geometry_msgs roscpp rospy sensor_msgs std_msgs
-#  DEPENDS system_lib
+  INCLUDE_DIRS include
+  LIBRARIES roller_eye
+  CATKIN_DEPENDS geometry_msgs roscpp rospy sensor_msgs std_msgs message_runtime message_filters
+  #DEPENDS system_lib
 )
 
 ###########

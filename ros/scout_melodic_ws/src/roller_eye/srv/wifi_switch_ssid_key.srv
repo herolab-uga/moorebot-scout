@@ -1,5 +1,5 @@
 int8 mode
 string ssid
-string key 
+string key
 ---
 int8 status

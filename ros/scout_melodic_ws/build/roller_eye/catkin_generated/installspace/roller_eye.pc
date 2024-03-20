@@ -3,6 +3,6 @@ prefix=/home/newt/Desktop/moorebot-scout/ros/scout_melodic_ws/install
 Name: roller_eye
 Description: Description of roller_eye
 Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lroller_eye
+Requires: geometry_msgs roscpp rospy sensor_msgs std_msgs message_runtime message_filters

@@ -3,6 +3,6 @@ prefix=/home/newt/Desktop/moorebot-scout/ros/scout_melodic_ws/devel
 Name: roller_eye
 Description: Description of roller_eye
 Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
+Cflags: -I/home/newt/Desktop/moorebot-scout/ros/scout_melodic_ws/devel/include -I/home/newt/Desktop/moorebot-scout/ros/scout_melodic_ws/src/roller_eye/include
+Libs: -L${prefix}/lib -lroller_eye
+Requires: geometry_msgs roscpp rospy sensor_msgs std_msgs message_runtime message_filters

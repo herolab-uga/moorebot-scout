@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(roller_eye_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "include " STREQUAL " ")
   set(roller_eye_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -116,7 +116,7 @@ if(NOT " " STREQUAL " ")
   endforeach()
 endif()
 
-set(libraries "")
+set(libraries "roller_eye")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/newt/Desktop/moorebot-scout/ros/scout_melodic_ws/install/lib;/home/newt/Desktop/moorebot-scout/ros/scout_melodic_ws/devel/lib;/home/newt/ros_catkin_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/newt/Desktop/moorebot-scout/ros/scout_melodic_ws/install/lib;/home/newt/Desktop/moorebot-scout/ros/scout_melodic_ws/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(roller_eye_EXPORTED_TARGETS "roller_eye_generate_messages_cpp;roller_eye_generate_messages_eus;roller_eye_generate_messages_lisp;roller_eye_generate_messages_nodejs;roller_eye_generate_messages_py")
+set(roller_eye_EXPORTED_TARGETS "roller_eye_generate_messages_cpp;roller_eye_generate_messages_eus;roller_eye_generate_messages_lisp;roller_eye_generate_messages_nodejs;roller_eye_generate_messages_py;roller_eye_gencfg")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${roller_eye_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -185,7 +185,7 @@ foreach(t ${roller_eye_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "")
+set(depends "geometry_msgs;roscpp;rospy;sensor_msgs;std_msgs;message_runtime;message_filters")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls

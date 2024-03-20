@@ -1,0 +1,2 @@
+roller_eye
+-G Unix Makefiles -DCATKIN_DEVEL_PREFIX=/home/newt/Desktop/moorebot-scout/ros/scout_melodic_ws/devel_isolated -DCMAKE_INSTALL_PREFIX=/home/newt/Desktop/moorebot-scout/ros/scout_melodic_ws/install_isolated

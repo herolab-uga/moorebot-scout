@@ -1,0 +1,17 @@
+\subsubsection usage Usage
+\verbatim
+<node name="ParamNode" pkg="roller_eye" type="ParamNode">
+  <param name="image_width" type="int" value="1280" />
+  <param name="image_height" type="int" value="720" />
+  <param name="image_fps_num" type="int" value="1" />
+  <param name="image_fps_den" type="int" value="30" />
+  <param name="image_fmt" type="int" value="0" />
+  <param name="image_night_mode" type="int" value="2" />
+  <param name="wideDynamic" type="int" value="0" />
+  <param name="wideDynamicRange" type="int" value="3" />
+  <param name="h264Quality" type="int" value="1" />
+  <param name="nightVisionSensitivity" type="int" value="0" />
+  <param name="cameraLight" type="int" value="0" />
+</node>
+\endverbatim
+
