@@ -14,3 +14,5 @@ nc $REMOTE_HOST $REMOTE_IMU_PORT > received_imu_data.txt &
 
 # Listen to Odom data 
 nc $REMOTE_HOST $REMOTE_ODOM_PORT > received_odom_data.txt & 
+
+wait
