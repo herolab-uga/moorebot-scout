@@ -1,9 +1,0 @@
-#!/bin/bash 
-
-# intended to be ran on the client machine. 
-
-check_port() { 
-    # aim for 8030
-    nc -l -p $1 > received_data.txt
-}
-
