@@ -32,8 +32,12 @@
 ##### lets get teleop to work for 1 scout. 
 
 # init 
-source ./lib/utility/init.sh
+# source ./lib/utility/init.sh
 # teleop
-source ./lib/control/teleop/solo_teleop.sh
-
-teleop_loop
+# source ./lib/control/teleop/solo_teleop.sh
+# teleop_loop
+## On scout
+./lib/sense/write.sh &
+./lib/sense/logger.sh
+## On PC
+./lib/sense/listener.sh &
