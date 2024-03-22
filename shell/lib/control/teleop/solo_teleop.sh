@@ -68,14 +68,17 @@ move() { # usage: move $1 $2 $3 $4 $5 $6
 }
 
 check_shell_pid() {
+    safe=0
     # make sure current pid is safe 
     if [ -n "$shell_pid" ]; then 
         echo "The 'shell_pid' environment variable is defined with value $shell_pid."
+        safe=1
     else 
         echo "The 'shell_pid' environment variable is not defined."
         shell_pid=$$
         export shell_pid 
         echo "Setting it to: $shell_pid"
+        safe=1
     fi
 }
 
@@ -88,6 +91,8 @@ end_last_command() {
     if pgrep . >/dev/null; then 
         # Get the PID of the last running process 
         last_pid=$(pgrep . | tail -n 1)
+        # Call check_shell_pid to ensure shell_pid is set 
+        check_shell_pid 
         # Kill the last running process 
         echo "Killing the last running process with PID: $last_pid"
         kill "$last_pid"
@@ -154,47 +159,57 @@ teleop_loop() {
         read -rsn1 input 
         case "$input" in 
             w) 
+                end_last_command
                 echo "(pressed) w"
                 y_lin=$(bc <<< "$y_lin + $inc")
                 move $x_lin $y_lin $z_lin $x_ang $y_ang $z_ang &   
                 ;; 
             a)
+                end_last_command
                 echo "(pressed) a"
                 x_lin=$(bc <<< "$x_lin - $inc")
                 move $x_lin $y_lin $z_lin $x_ang $y_ang $z_ang & 
                 ;; 
             s) 
+                end_last_command
                 echo "(pressed) s"
                 y_lin=$(bc <<< "$y_lin - $inc")
                 move $x_lin $y_lin $z_lin $x_ang $y_ang $z_ang &  
                 ;; 
             d) 
+                end_last_command
                 echo "(pressed) d"
                 x_lin=$(bc <<<  "$x_lin +$inc")
                 move $x_lin $y_lin $z_lin $x_ang $y_ang $z_ang & 
                 ;;
             q)  
+                end_last_command
                 echo "(pressed) q"
                 z_ang=$(bc <<< "$z_ang + $inc")
                 move $x_lin $y_lin $z_lin $x_ang $y_ang $z_ang & 
                 ;;
             e) 
+                end_last_command
                 echo "(pressed) e"
                 z_ang=$(bc <<< "$z_ang - $inc")
                 move $x_lin $y_lin $z_lin $x_ang $y_ang $z_ang & 
                 ;;
             r) 
+                end_last_command
                 echo "(pressed) r"
                 # listen to battery data
                 print_battery_status
                 wait
                 ;;
             t) 
+                end_last_command
                 echo "(pressed) t"
                 # listen to tof data
                 print_tof_data
                 wait 
                 ;;
+            y) 
+                echo "(pressed) y";;
             *) 
                 echo "Invalid key"
                 ;;
