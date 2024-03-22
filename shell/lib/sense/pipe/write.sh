@@ -20,18 +20,13 @@ make_pipe() {
     case "$PIPE_DIR" in 
         "$IMU_PIPE") 
             echo "IMU pipe created"
-            rostopic echo /SensorNode/IMU > $IMU_PIPE 
-            ;;
+            rostopic echo /SensorNode/imu > $IMU_PIPE;;
         "$ODOM_PIPE") 
             echo "ODOM pipe created"
-            rostopic echo /SensorNode/Odom > $ODOM_PIPE 
-            ;;
+            rostopic echo /MotorNode/baselink_odom_relative > $ODOM_PIPE;;
         *) 
-            echo "unknown err"
-            ;;
-    
+            echo "unknown err";;
     esac
-    
 }
 
 # start
