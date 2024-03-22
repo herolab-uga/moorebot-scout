@@ -32,11 +32,11 @@ make_pipe() {
             echo "tof pipe created at $TOF_DIR"
             rostopic echo /SensorNode/tof > $TOF_DIR;;
         "$BAT_DIR")
-            echo "simple battery status pipe created at $BAT_DIR";;
+            echo "simple battery status pipe created at $BAT_DIR"
             rostopic echo /SensorNode/simple_battery_status > $BAT_DIR;;
         "$LIGHT_DIR")
-            echo "illuminance pipe created at $LIGHT_DIR";;
-            rostopic echo /SensorNode/light
+            echo "illuminance pipe created at $LIGHT_DIR"
+            rostopic echo /SensorNode/light;;
         "$IMG_DIR")
             echo "img pipe created at $IMG_DIR"
             rostopic echo /CoreNode/h264 > $IMG_DIR;;
