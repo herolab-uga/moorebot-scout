@@ -68,15 +68,7 @@ move() { # usage: move $1 $2 $3 $4 $5 $6
 }
 
 check_shell_pid() {
-    
-}
-
-## 
-# end_last_command()
-# description: 
-##
-end_last_command() { 
-    # make sure current pid is safe
+    # make sure current pid is safe 
     if [ -n "$shell_pid" ]; then 
         echo "The 'shell_pid' environment variable is defined with value $shell_pid."
     else 
@@ -84,8 +76,14 @@ end_last_command() {
         shell_pid=$$
         export shell_pid 
         echo "Setting it to: $shell_pid"
-    fi 
-    
+    fi
+}
+
+## 
+# end_last_command()
+# description: 
+##
+end_last_command() { 
     # Check if there are any running processes
     if pgrep . >/dev/null; then 
         # Get the PID of the last running process 
