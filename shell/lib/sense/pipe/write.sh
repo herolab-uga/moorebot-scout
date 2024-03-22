@@ -10,8 +10,8 @@ init() {
     ODOM_DIR="/tmp/baselink_odom_relative_data"
     TOF_DIR="/tmp/tof_data"
     BAT_DIR="/tmp/simple_battery_status_data"
-    LIGHT_DIR="/tmp/light"
-    IMG_DIR="/tmp/h264"
+    LIGHT_DIR="/tmp/light_data"
+    IMG_DIR="/tmp/h264_data"
 }
 
 # make pipe 
@@ -52,10 +52,10 @@ start() {
     make_pipe $ODOM_DIR &
     # needs to be tested 
     ## 
-    # make_pipe $TOF_DIR & 
-    # make_pipe $BAT_DIR & 
-    # make_pipe $LIGHT_DIR & 
-    # make_pipe $IMG_DIR & 
+    make_pipe $TOF_DIR & 
+    make_pipe $BAT_DIR & 
+    make_pipe $LIGHT_DIR & 
+    make_pipe $IMG_DIR & 
     ## end  
     echo "^+C to quit." 
     wait

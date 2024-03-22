@@ -11,7 +11,7 @@ cat /tmp/tof_data | nc -l -p 8032 &
 
 cat /tmp/simple_battery_status_data | nc -l -p 8033 & 
 
-cat /tmp/h264 | nc -l -p 8034 & 
+cat /tmp/h264_data | nc -l -p 8034 & 
 
-cat /tmp/light | nc -l -p 8035 & 
+cat /tmp/light_data | nc -l -p 8035 & 
 
