@@ -7,11 +7,11 @@ cat /tmp/imu_data | nc -l -p 8030 &
 cat /tmp/odom_data | nc -l -p 8031 & 
 
 
-cat /tmp/tof_data
+cat /tmp/tof_data | nc -l -p 8032 &
 
-cat /tmp/simple_battery_status_data
+cat /tmp/simple_battery_status_data | nc -l -p 8033 & 
 
-cat /tmp/h264
+cat /tmp/h264 | nc -l -p 8034 & 
 
-cat /tmp/light
+cat /tmp/light | nc -l -p 8035 & 
 
