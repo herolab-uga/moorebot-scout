@@ -67,11 +67,48 @@ move() { # usage: move $1 $2 $3 $4 $5 $6
     wait
 }
 
+check_shell_pid() {
+    
+}
+
+## 
+# end_last_command()
+# description: 
+##
+end_last_command() { 
+    # make sure current pid is safe
+    if [ -n "$shell_pid" ]; then 
+        echo "The 'shell_pid' environment variable is defined with value $shell_pid."
+    else 
+        echo "The 'shell_pid' environment variable is not defined."
+        shell_pid=$$
+        export shell_pid 
+        echo "Setting it to: $shell_pid"
+    fi 
+    
+    # Check if there are any running processes
+    if pgrep . >/dev/null; then 
+        # Get the PID of the last running process 
+        last_pid=$(pgrep . | tail -n 1)
+        # Kill the last running process 
+        echo "Killing the last running process with PID: $last_pid"
+        kill "$last_pid"
+    else 
+        echo "No running processes found."
+    fi # end:if
+} #end:end_last_command()
+
+## 
+# set_uri()
+# description:
+##
 set_uri() { 
     ip=$1
     echo "shell/lib/control/teleop/solo_teleop.sh(publish) called"
-    export ROS_MASTER_URI=http://$ip:11311   
-}
+    export ROS_MASTER_URI=http://$ip:11311
+} # end:set_uri
+
+
 
 publish() { 
     echo "shell/lib/control/teleop/solo_teleop.sh(publish) called"
