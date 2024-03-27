@@ -53,6 +53,25 @@
         * tof: 
             * message example: 
                 * "request: tof_data; num_msgs: 10; rate: 1;"
+            * result: 
+                * scout_mqtt_node publishes corresponding data to /tuco/telem
+                * pseudocode: 
+                    * > $ ./mqtt_pub '/tuco/telem' 'request: tof; num_msgs: 10; rate: 1'
+                        * send(str cmd) { 
+                            *  str = $(echo "rostopic echo /SensorNode/tof") # need to isolate a portion of the data stream 
+                            * return str
+                        * }
+                        * response = send(command)
+                        * if response != null : 
+                            * response === "tof req recvd. submitting."
+                    * > $ ./mqtt_sub '/tuco/telem'
+                        * listen() { 
+                            * case: 
+                                * request:  
+                                    * .. (do stuff)
+                        * }
+                    * .. 
+                    
         * battery_status:
             * message example: 
                 * "request: battery_status; num_msgs: 10; rate: 1;"
