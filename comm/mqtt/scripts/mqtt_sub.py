@@ -13,7 +13,7 @@ def message_handling(client, userdata, msg):
 client = paho.Client(paho.CallbackAPIVersion.VERSION2)
 client.on_message = message_handling
 
-if client.connect("localhost", 8080, 60) != 0:
+if client.connect("localhost", 8081, 60) != 0:
     print("Couldn't connect to the mqtt broker")
     sys.exit(1)
 
